@@ -1,0 +1,6 @@
+$('#notice').hide();
+
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); } //як тільки щось додається до пустої корзини,
+                            // плавно з'являється бокова панель із корзиною без перемальовування бокової панелі
+$('#cart').html("<%=j render(@cart) %>");
+$('#current_item').css({'background-color':'#f7c299'}).animate({'background-color':'#f93'}, 1000);
