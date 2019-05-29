@@ -65,10 +65,10 @@ class ProductsController < ApplicationController
 
   def who_bought
     @product = Product.find(params[:id])
-    @latest_order = @product.orders.order(:updated_at).last
-    if stale?(@latest_order)
+    @latest_order = @product.orders.order(:updated_at).last # знаходимо останнє замовлення
+    if stale?(@latest_order) # перевірка, коли було модифіковано
       respond_to do |format|
-        format.atom
+        format.atom # шукаємо шаблон who_bought.atom.builder
       end
     end
   end
